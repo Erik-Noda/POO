@@ -1,0 +1,205 @@
+package Ex1;
+
+import java.util.ArrayList;
+
+public class Principal {
+
+    ArrayList<Animal> lista= new ArrayList<>();
+    
+    public static void main(String[] args) {
+        Principal principal = new Principal();
+        principal.iniciar();
+    }
+    
+    public void imprimir(){
+        for (Animal i: lista){
+            i.getNome();
+            i.barulho();
+            i.comer();
+            i.movimentar();
+            i.getPele();
+            System.out.println("\n");
+        } 
+    }
+    
+    public void iniciar(){
+        Animal animal = new Sapo();
+        lista.add(animal);
+        
+        animal = new Ra();
+        lista.add(animal);
+        
+        animal = new Leao();
+        lista.add(animal);
+        
+        animal = new Macaco();
+        lista.add(animal);
+        imprimir();
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+package Ex1;
+
+public class Animal {
+    public String nome;
+    
+    public void getNome(){
+        
+    }
+    public void barulho(){
+        
+    }
+    public void comer(){
+        
+    }
+    
+    public void movimentar(){
+        
+    }
+    
+    public void getPele(){
+        
+    }    
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+package Ex1;
+
+public class Anfibio extends Animal{
+    protected String quantidadeEscamas;
+    
+    public Anfibio(){
+        this.quantidadeEscamas = "pouco";
+    }
+    
+    
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+package Ex1;
+
+public class Terrestre extends Animal {
+    protected String quantidadePelos;
+    
+    public Terrestre(){
+        this.quantidadePelos = "pouco";
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+package Ex1;
+
+public class Ra extends Anfibio{
+
+    public Ra(){
+        this.nome = "Ra";
+    }
+    
+    public void getNome(){
+        System.out.println(this.nome);
+    }
+    
+    public void barulho(){
+        System.out.println("grasnar");
+    }
+    public void comer(){
+        System.out.println("insetos");
+    }
+    
+    public void movimentar(){
+        System.out.println("salta");
+    }
+    
+    public void getPele(){
+        System.out.println(this.quantidadeEscamas);
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+package Ex1;
+
+public class Sapo extends Anfibio {
+
+    public Sapo(){
+        this.nome = "Sapo";
+    }
+    
+    public void getNome(){
+        System.out.println(this.nome);
+    }
+    
+    public void barulho(){
+        System.out.println("coaxar");
+    }
+    public void comer(){
+        System.out.println("mosca");
+    }
+    
+    public void movimentar(){
+        System.out.println("pula");
+    }
+    
+    public void getPele(){
+        System.out.println(this.quantidadeEscamas);
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+package Ex1;
+
+public class Macaco extends Terrestre{
+
+    public Macaco(){
+        this.nome = "Macaco";
+    }
+    
+    public void getNome(){
+        System.out.println(this.nome);
+    }
+    
+    public void barulho(){
+        System.out.println("guinchar");
+    }
+    public void comer(){
+        System.out.println("banana");
+    }
+    
+    public void movimentar(){
+        System.out.println("2 patas");
+    }
+    
+    public void getPele(){
+        System.out.println(this.quantidadePelos);
+    }
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+package Ex1;
+
+public class Leao extends Terrestre{
+    
+    public Leao(){
+        this.nome = "Leao";
+    }
+    
+    public void getNome(){
+        System.out.println(this.nome);
+    }
+    
+    public void barulho(){
+        System.out.println("rugir ");
+    }
+    public void comer(){
+        System.out.println("carne");
+    }
+    
+    public void movimentar(){
+        System.out.println("4 patas");
+    }
+    
+    public void getPele(){
+        System.out.println(this.quantidadePelos);
+    }
+}
+
