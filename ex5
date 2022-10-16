@@ -1,0 +1,179 @@
+
+package Ex5;
+
+
+public class Subtracao implements IOperacoes{
+    public float operando1;
+    public float operando2;
+    
+    @Override
+    public void setOperando1(float operando1) {
+        this.operando1=operando1;
+    }
+
+    @Override
+    public void setOperando2(float operando2) {
+        this.operando2=operando2;
+    }
+
+    @Override
+    public float getResultado() {
+        return operando1-operando2;
+    }
+
+    @Override
+    public String getNome() {
+        return "SUBTRACAO";
+    }
+
+    @Override
+    public int getQuantidade() {
+        return 1;
+
+}
+}
+
+//------------------------------------------------------------------------------------------------------
+package Ex5;
+
+
+public class Soma implements IOperacoes{
+    public float operando1;
+    public float operando2;
+    
+    @Override
+    public void setOperando1(float operando1) {
+        this.operando1=operando1;
+    }
+
+    @Override
+    public void setOperando2(float operando2) {
+        this.operando2=operando2;
+    }
+
+    @Override
+    public float getResultado() {
+        return operando1+operando2;
+    }
+
+    @Override
+    public String getNome() {
+        return "SOMA";
+    }
+
+    @Override
+    public int getQuantidade() {
+        return 1;
+    }
+    
+}
+
+//------------------------------------------------------------------------------------------------------
+package Ex5;
+
+
+public class Principal{
+
+    public static void main(String[] args) {
+        Principal principal = new Principal();
+        principal.iniciar();
+    }
+    
+    public void iniciar(){
+        IOperacoes calculadora = new Soma();
+        calculadora.setOperando1(10);
+        calculadora.setOperando2(2);
+        System.out.println(calculadora.getNome());
+        System.out.println(calculadora.getResultado());
+        
+        calculadora = new Subtracao();
+        calculadora.setOperando1(10);
+        calculadora.setOperando2(2);
+        System.out.println(calculadora.getNome());
+        System.out.println(calculadora.getResultado());
+        
+        calculadora = new Divisao();
+        calculadora.setOperando1(10);
+        calculadora.setOperando2(2);
+        System.out.println(calculadora.getNome());
+        System.out.println(calculadora.getResultado());
+        
+        calculadora = new Multiplicacao();
+        calculadora.setOperando1(10);
+        calculadora.setOperando2(2);
+        System.out.println(calculadora.getNome());
+        System.out.println(calculadora.getResultado());
+        
+    }
+}
+
+//------------------------------------------------------------------------------------------------------
+package Ex5;
+
+
+public class Multiplicacao implements IOperacoes{
+    public float operando1;
+    public float operando2;
+    
+    @Override
+    public void setOperando1(float operando1) {
+        this.operando1=operando1;
+    }
+
+    @Override
+    public void setOperando2(float operando2) {
+        this.operando2=operando2;
+    }
+
+    @Override
+    public float getResultado() {
+        return operando1*operando2;
+    }
+
+    @Override
+    public String getNome() {
+        return "Multiplicacao";
+    }
+
+    @Override
+    public int getQuantidade() {
+        return 1;
+    }
+}
+
+    }
+//------------------------------------------------------------------------------------------------------
+package Ex5;
+
+
+public class Divisao implements IOperacoes{
+    public float operando1;
+    public float operando2;
+    
+    @Override
+    public void setOperando1(float operando1) {
+        this.operando1=operando1;
+    }
+
+    @Override
+    public void setOperando2(float operando2) {
+        this.operando2=operando2;
+    }
+
+    @Override
+    public float getResultado() {
+        return operando1/operando2;
+    }
+
+    @Override
+    public String getNome() {
+        return "DIVISAO";
+    }
+
+    @Override
+    public int getQuantidade() {
+        return 1;
+
+}
+}
+
