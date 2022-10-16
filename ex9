@@ -1,0 +1,58 @@
+
+package Ex9;
+
+public class Principal {
+    
+    public interface Interface {
+    String getNome();
+    String getMembros();
+}
+    
+    public abstract class Abstrata implements Interface{
+        
+    public String nome;
+    public String membros;
+    
+    public String getNome() {
+        return this.nome;
+    }
+
+    public String getMembros() {
+        return this.membros;
+    }
+}
+   
+    public class Concreta extends Abstrata implements Interface{
+ 
+    public String nome;
+    public String membros;
+    
+    public Concreta(String nome, String membros){
+        this.nome = nome;
+        this.membros = membros;
+    }
+    
+    public String getNome() {
+        return this.nome;
+    }
+
+    public String getMembros() {
+        return this.membros;
+    }   
+}
+    
+    public void iniciar(){
+        Interface obj1 = new Concreta("Leao","Patas");
+        Abstrata obj2 = new Concreta("Polvo", "Tentaculos");
+        
+        System.out.print(obj1.getNome() + ", ");
+        System.out.print(obj1.getMembros()+ '\n');
+        System.out.print(obj2.getNome()+", ");
+        System.out.print(obj2.getMembros()+'\n');
+    }
+    
+    public static void main(String[] args) {
+        Principal principal = new Principal();
+        principal.iniciar();
+    }
+}
