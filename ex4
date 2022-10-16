@@ -1,0 +1,149 @@
+
+package Ex4;
+
+import java.util.ArrayList;
+
+public class Principal{
+
+    public void iniciar(){
+        Bonificado b1 = new Bonificado("Joao","Silva", 1000f, 1000f, 1000f);
+        Comissionado c1 = new Comissionado("Maria","Soares", 2000f, 2000f);
+        Horista h1 = new Horista("Jomar","Silva Soares", 3000f, 3);
+        
+        ArrayList <Empregado> lista = new ArrayList<>();
+        
+        Empregado empregado;
+        empregado = b1;
+        lista.add(empregado);
+        empregado = c1;
+        lista.add(empregado);
+        empregado = h1;
+        lista.add(empregado);
+        
+        for (Empregado emp : lista){
+            emp.imprimir();
+            emp.ganhos();
+            System.out.println("");
+        }
+    }
+    
+    public static void main(String[] args) {
+        Principal principal = new Principal();
+        principal.iniciar();
+    }
+}
+
+//--------------------------------------------------------------------------------------------------------------
+package Ex4;
+
+public abstract class Empregado {
+    protected String nome;
+    protected String sobrenome;
+    protected float salarioBase;
+    
+    public Empregado(String nome, String sobrenome, float salarioBase){
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.salarioBase = salarioBase;
+    }
+    
+    public abstract void ganhos();
+    public abstract void imprimir();
+   
+}
+
+//--------------------------------------------------------------------------------------------------------------
+package Ex4;
+
+public class Horista extends Empregado{
+    
+    private final int horas;
+    
+    public Horista(String nome, String sobrenome, float salarioBase,int horas){
+        super(nome,sobrenome,salarioBase);
+        this.horas = horas;
+    }
+    
+   public void ganhos() {
+        System.out.println("Ganhos");
+        System.out.println("Salario base: "+ this.salarioBase);
+    }
+
+    
+    public void imprimir() {
+        System.out.println("Horista");
+        System.out.println("Nome: " + this.nome+ " " + this.sobrenome);
+        System.out.println("Horas: " + this.horas);
+        
+    }
+}
+
+//--------------------------------------------------------------------------------------------------------------
+package Ex4;
+
+public class Comissionado extends Empregado{
+
+    private final float taxaComissao;
+    
+    public Comissionado(String nome, String sobrenome, float salarioBase ,float taxaComissao){
+        super(nome,sobrenome,salarioBase);
+        this.taxaComissao = taxaComissao;
+    }
+    
+    public void ganhos() {
+        System.out.println("Ganhos");
+        System.out.println("Salario base: "+ this.salarioBase);
+        System.out.println("Taxa de comissao: " + this.taxaComissao);
+    }
+
+    
+    public void imprimir() {
+        System.out.println("Comissionado");
+        System.out.println("Nome: " + this.nome+ " " + this.sobrenome);
+        
+    }
+    
+}
+
+//--------------------------------------------------------------------------------------------------------------
+package Ex4;
+
+public class Bonificado extends Assalariado{
+
+    private final float bonificacao;
+            
+    public Bonificado(String nome, String sobrenome, float salarioBase, float bonificacao, float salarioSemanal){
+        super(nome,sobrenome,salarioBase,salarioSemanal);
+        this.bonificacao = bonificacao;
+    }
+    
+    public void ganhos() {
+        System.out.println("Ganhos");
+        System.out.println("Salario base: "+ this.salarioBase);
+        System.out.println("Salario semanal: " + this.salarioSemanal);
+        System.out.println("Bonificacao: " + this.bonificacao);
+    }
+
+    
+    public void imprimir() {
+        System.out.println("Bonificado");
+        System.out.println("Nome: " + this.nome+ " " + this.sobrenome);
+        
+    }
+    
+}
+
+//--------------------------------------------------------------------------------------------------------------
+package Ex4;
+
+public abstract class Assalariado extends Empregado{
+    protected float salarioSemanal;
+    
+    public Assalariado(String nome, String sobrenome,float salarioBase, float salarioSemanal){
+        super(nome,sobrenome,salarioBase);
+        this.salarioSemanal = salarioSemanal;
+    }
+}
+
+
+
