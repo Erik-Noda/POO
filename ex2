@@ -1,0 +1,198 @@
+
+package Ex2;
+
+public class Tecnico extends MembroUniversitario{
+    
+    public Tecnico(){
+        this.nome = "Marcio";
+        this.CPF = "984.231.456-11";
+        this.cargo = "Tecnico";
+        this.idade = 26;
+        this.salario = 1000f;
+    }
+    
+    public float pagamento() {
+        return this.salario;
+    }
+
+    public String getCargo() {
+        return this.cargo;
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public int getIdade() {
+        return this.idade;
+    }
+
+    public String getCPF() {
+        return this.CPF;
+    }
+}
+//-----------------------------------------------------------------------------------------------------------------
+
+package Ex2;
+
+public class Professor extends MembroUniversitario{ 
+    
+    
+    public Professor(){
+        this.nome = "Maria";
+        this.CPF = "597.951.324-75";
+        this.cargo = "Professor";
+        this.idade = 35;
+        this.salario = 5000.90f;
+    }
+    
+    public float pagamento() {
+        return this.salario;
+    }
+
+    public String getCargo() {
+        return this.cargo;
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public int getIdade() {
+        return this.idade;
+    }
+
+    public String getCPF() {
+        return this.CPF;
+    }
+    
+}
+//-----------------------------------------------------------------------------------------------------------------
+
+package Ex2;
+
+import java.util.ArrayList;
+
+public class Principal {
+    
+    public void iniciar(){
+        ArrayList<MembroUniversitario>lista=new ArrayList<>();
+        MembroUniversitario membro = new Administrativo();
+        lista.add(membro);
+        
+        membro = new Professor();
+        lista.add(membro);
+        
+        membro = new Tecnico();
+        lista.add(membro);
+        
+        membro = new Bolsista();
+        lista.add(membro);
+  
+        for (MembroUniversitario i:lista){
+            System.out.println(i.getCargo());
+            System.out.println(i.getNome());
+            System.out.println(i.getCPF());
+            System.out.println(i.pagamento());
+            System.out.println(i.getIdade());
+            System.out.println("\n");
+        }
+                
+    }
+ 
+    public static void main(String[] args) {
+        Principal principal = new Principal();
+        principal.iniciar();
+    }
+}
+//-----------------------------------------------------------------------------------------------------------------
+
+package Ex2;
+
+public abstract class MembroUniversitario {
+    public float salario;
+    public String cargo;
+    public String nome;
+    public int idade;
+    public String CPF;
+    
+    
+    public abstract float pagamento();
+    public abstract String getCargo();
+    public abstract String getNome();
+    public abstract int getIdade();
+    public abstract String getCPF();
+}
+//-----------------------------------------------------------------------------------------------------------------
+
+package Ex2;
+
+public class Bolsista extends MembroUniversitario{
+    
+    public Bolsista(){
+        this.nome = "Ana";
+        this.CPF = "897.123.654-88";
+        this.cargo = "Bolsista";
+        this.idade = 21;
+        this.salario = 500f;
+    }
+    
+    public float pagamento() {
+        return this.salario;
+    }
+
+    public String getCargo() {
+        return this.cargo;
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public int getIdade() {
+        return this.idade;
+    }
+
+    public String getCPF() {
+        return this.CPF;
+    }
+    
+
+}
+//-----------------------------------------------------------------------------------------------------------------
+
+package Ex2;
+
+public class Administrativo extends MembroUniversitario{
+
+    public Administrativo(){
+        this.nome = "joao";
+        this.CPF = "123.456.789-10";
+        this.cargo = "Administrativo";
+        this.idade = 20;
+        this.salario = 2000f;
+    }
+    
+      public float pagamento() {
+        return this.salario;
+    }
+
+    public String getCargo() {
+        return this.cargo;
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public int getIdade() {
+        return this.idade;
+    }
+
+    public String getCPF() {
+        return this.CPF;
+    }
+    
+}
+
+
