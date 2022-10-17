@@ -1,0 +1,117 @@
+package Ex3;
+
+import java.util.ArrayList;
+
+public class Principal {
+
+    public void iniciar(){
+        ArrayList <IConversorMoeda> lista = new ArrayList<>();
+        
+        IConversorMoeda moeda = new Euro(100);
+        lista.add(moeda);
+        
+        moeda = new BitCoin(10);
+        lista.add(moeda);
+        
+        moeda = new Real(1000);
+        lista.add(moeda);
+        
+        for (IConversorMoeda i : lista){
+            System.out.println(i.getConversaoDolar());
+        }
+        
+    }
+    
+    public static void main(String[] args) {
+        Principal principal = new Principal();
+        principal.iniciar();
+    }
+    
+}
+//---------------------------------------------------------------------------------------------
+
+package Ex3;
+
+public class Real implements IConversorMoeda{
+
+    public float valorReal;
+    public float dolar;
+
+    public Real(float valorReal) {
+        this.valorReal = valorReal;
+    }
+
+    
+    
+    public float getValorReal(){
+        return this.valorReal;
+    }
+    
+    public float getConversaoDolar() {
+       System.out.print(valorReal + " real(is) para dolar: ");
+       dolar = (float) (valorReal * 0.19);
+       return dolar;
+    }
+    
+}
+//---------------------------------------------------------------------------------------------
+
+package Ex3;
+
+public class BitCoin implements IConversorMoeda{
+
+    public float valorBitCoin;
+    public float dolar;
+
+    public BitCoin(float valorBitCoin) {
+        this.valorBitCoin = valorBitCoin;
+    }
+    
+    
+    public float getValorBitCoin(){
+        return this.valorBitCoin;
+    }
+    
+    public float getConversaoDolar(){
+        System.out.print(valorBitCoin + " Bitcoin(s) para dolar: ");
+        dolar = (float) (valorBitCoin * 19582.5);
+        return dolar;
+    }
+    
+}
+//---------------------------------------------------------------------------------------------
+
+package Ex3;
+
+public class Euro implements IConversorMoeda{
+
+    public float valorEuro;
+    public float dolar;
+
+    public Euro(float valorEuro) {
+        this.valorEuro = valorEuro;
+    }
+    
+    
+    public float getValorEuro(){
+        return this.valorEuro;
+    }
+    
+    public float getConversaoDolar(){
+        System.out.print(valorEuro + " Euro(s) para dolar: ");
+        dolar = (float) (valorEuro * 0.98);
+        return dolar;
+    }
+}
+//---------------------------------------------------------------------------------------------
+
+
+package Ex3;
+
+public interface IConversorMoeda {
+    public abstract float getConversaoDolar();
+}
+
+
+
+
